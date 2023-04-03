@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SearchBar from './SearchBar/SearchBar'
-
+import axios from 'axios'
 
 const endpointProducts = 'https://fakestoreapi.com/products'
 
@@ -9,16 +9,13 @@ const App = () => {
 
   const [ products, setProducts ] = useState([])
 
+  const fetchProducts = async () => {
+    const res = await axios.get(endpointProducts)
+    setProducts(res.data)
+  }
+
   useEffect( () => {
-    fetch(endpointProducts)
-      .then( res => res.json() )
-      .then( payload => {
-        const newProducts = payload.map(
-            (p) => { return p }
-        )
-        setProducts(newProducts)
-        console.log(payload)
-      })
+    fetchProducts();
   }, [])
 
   const hasProducts = products.length > 0;

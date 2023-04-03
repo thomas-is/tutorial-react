@@ -1,20 +1,29 @@
 import React from 'react'
+//import PropTypes from 'prop-types';
 import './ProductOverview.css'
 
 const ProductOverview = ( props ) => {
 
-  const product = props.product;
-  console.log(product);
+//  console.log(props.product);
+
+  const { image, title, price, description } = props.product;
 
   return (
-    <div class="productOverview">
-      <div className="image" ><img src={product.image} alt={product.title}/></div>
-      <div className="title" >{product.title}</div>
-      <div className="price" >{product.price} €</div>
-      <div className="description" >{product.description}</div>
+    <div className="productOverview">
+      <div className="image" ><img src={image} alt={title}/></div>
+      <div className="title" >{title}</div>
+      <div className="price" >{price} €</div>
+      <div className="description" >{description}</div>
     </div>
   )
 
 }
 
 export default ProductOverview
+
+//ProductOverview.propTypes = {
+//    image:       PropTypes.string,
+//    title:       PropTypes.string,
+//    price:       PropTypes.string,
+//    description: PropTypes.string
+//};
