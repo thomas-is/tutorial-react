@@ -1,0 +1,38 @@
+.toggleSwitch {
+    --value: 0;
+    --size: 18px;
+    --thickness: 2px;
+    --bg-hi: #444;
+    --bg-lo: #222;
+    --bg-halo : #444;
+    --fg-hi: #ddd;
+    --fg-lo: #000;
+    --fg-halo: #ddd;
+    cursor: pointer;
+    display: inline-block;
+    height: var(--size) ;
+    width: calc(var(--size)*2) ;
+    background: radial-gradient(var(--bg-hi),var(--bg-lo));
+    border: var(--thickness) solid #000;
+    border-radius: 20% / 50%;
+    box-shadow: 0px 0px calc(var(--size) / 10) var(--bg-lo) inset, 0px 0px calc(var(--size) / 4 ) var(--bg-halo);
+    margin: 4px auto;
+    padding: 0;
+    z-index: 10;
+}
+
+.toggleSwitch:before{
+    content:"";
+    display: inline-block;
+    width: var(--size) ;
+    height: var(--size) ;
+    background: linear-gradient(var(--fg-hi),var(--fg-lo));
+    border: var(--thickness) solid var(--fg-lo);
+    border-radius: 100%;
+    z-index: 20;
+    margin-top: calc( 0px - var(--thickness) );
+    margin-left: calc( var(--value)  * var(--size) - var(--thickness));
+    transition: all 0.25s ease-out;
+}
+
+
