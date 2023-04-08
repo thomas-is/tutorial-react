@@ -1,22 +1,17 @@
 .toggleSwitch {
     --value: 0;
     --size: 18px;
-    --thickness: 2px;
-    --bg-hi: #444;
-    --bg-lo: #222;
-    --bg-halo : #444;
-    --fg-hi: #ddd;
-    --fg-lo: #000;
-    --fg-halo: #ddd;
+    --thickness: 0px;
+    --hue: 200;
+    --bg: hsl(var(--hue),calc( var(--value) * 50%),calc( ( 1 - var(--value) / 2 )* 75% ));
     cursor: pointer;
     display: inline-block;
     height: var(--size) ;
     width: calc(var(--size)*2) ;
-    background: radial-gradient(var(--bg-hi),var(--bg-lo));
-    border: var(--thickness) solid #000;
+    background: var(--bg);
     border-radius: 20% / 50%;
-    box-shadow: 0px 0px calc(var(--size) / 10) var(--bg-lo) inset, 0px 0px calc(var(--size) / 4 ) var(--bg-halo);
-    margin: 4px auto;
+    box-shadow: 0px 0px calc(var(--size) / 10) var(--bg) inset, 0px 0px calc(var(--size) / 4 ) var(--bg);
+    margin: auto 8px;
     padding: 0;
     z-index: 10;
 }
@@ -26,13 +21,13 @@
     display: inline-block;
     width: var(--size) ;
     height: var(--size) ;
-    background: linear-gradient(var(--fg-hi),var(--fg-lo));
-    border: var(--thickness) solid var(--fg-lo);
+    border: 1px solid hsl(var(--hue),calc( var(--value) * 10% ),20%);
     border-radius: 100%;
     z-index: 20;
-    margin-top: calc( 0px - var(--thickness) );
-    margin-left: calc( var(--value)  * var(--size) - var(--thickness));
+    margin-top: -1px;
+    margin-left: calc( var(--value) * var(--size) - 1px );
     transition: all 0.25s ease-out;
 }
+
 
 

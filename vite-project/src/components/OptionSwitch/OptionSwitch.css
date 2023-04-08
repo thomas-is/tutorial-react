@@ -1,0 +1,21 @@
+.optionSwitch {
+  margin: 4px auto;
+}
+
+.inactive {
+  color: hsl(0,0%,80%);
+  transition: all 0.25s ease-out;
+  text-decoration: 
+}
+
+.active {
+  color: hsl(0,0%,0%);
+  text-shadow: 0px 0px 2px hsl(0,0%,0%);
+  transition: all 0.25s ease-out;
+}
+
+.toggleSwitch {
+  vertical-align: middle;
+}
+
+
