@@ -1,7 +1,7 @@
 .toggleSwitch {
     --value: 0;
-    --size: 18px;
-    --thickness: 0px;
+    --size: 24px;
+    --thickness: 2px;
     --hue: 200;
     --bg: hsl(var(--hue),calc( var(--value) * 50%),calc( ( 1 - var(--value) / 2 )* 75% ));
     cursor: pointer;
@@ -9,6 +9,7 @@
     height: var(--size) ;
     width: calc(var(--size)*2) ;
     background: var(--bg);
+    border: var(--thickness) solid hsl( var(--hue), calc( var(--value) * 100%), 25% );
     border-radius: 20% / 50%;
     box-shadow: 0px 0px calc(var(--size) / 10) var(--bg) inset, 0px 0px calc(var(--size) / 4 ) var(--bg);
     margin: auto 8px;
@@ -21,11 +22,11 @@
     display: inline-block;
     width: var(--size) ;
     height: var(--size) ;
-    border: 1px solid hsl(var(--hue),calc( var(--value) * 10% ),20%);
+    border: var(--thickness) solid hsl( var(--hue), calc( var(--value) * 100%), 25% );
     border-radius: 100%;
     z-index: 20;
-    margin-top: -1px;
-    margin-left: calc( var(--value) * var(--size) - 1px );
+    margin-top: calc( var(--thickness) * -1);
+    margin-left: calc( var(--value) * var(--size) - var(--thickness) );
     transition: all 0.25s ease-out;
 }
 
